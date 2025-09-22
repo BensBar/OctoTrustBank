@@ -10,6 +10,10 @@ import orderRoutes from './routes/order';
 import branchRoutes from './routes/branch';
 import headquartersRoutes from './routes/headquarters';
 import supplierRoutes from './routes/supplier';
+// Banking routes
+import customerRoutes from './routes/customer';
+import accountRoutes from './routes/account';
+import transactionRoutes from './routes/transaction';
 import { initializeDatabase } from './init-db';
 import { errorHandler } from './utils/errors';
 
@@ -42,9 +46,9 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Express API with Swagger',
+      title: 'OctoTrust Bank API',
       version: '1.0.0',
-      description: 'REST API documentation using Swagger/OpenAPI',
+      description: 'Banking REST API documentation using Swagger/OpenAPI',
     },
     servers: [
       {
@@ -78,6 +82,10 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/branches', branchRoutes);
 app.use('/api/headquarters', headquartersRoutes);
 app.use('/api/suppliers', supplierRoutes);
+// Banking API routes
+app.use('/api/customers', customerRoutes);
+app.use('/api/accounts', accountRoutes);
+app.use('/api/transactions', transactionRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');

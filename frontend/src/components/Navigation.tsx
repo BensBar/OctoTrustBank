@@ -19,9 +19,9 @@ export default function Navigation() {
               <img src="/copilot.png" alt="Copilot icon" className="h-8 w-auto" />
               <div className="ml-2">
                 <span className={`text-xl font-bold ${darkMode ? 'text-light' : 'text-gray-800'}`}>
-                  OctoCAT Supply
+                  OctoTrust Bank
                 </span>
-                <span className="block text-xs text-primary">Smart Cat Tech, Powered by AI</span>
+                <span className="block text-xs text-primary">Smart Banking, Powered by AI</span>
               </div>
             </Link>
           </div>
@@ -32,6 +32,12 @@ export default function Navigation() {
                 className={`${darkMode ? 'text-light hover:text-primary' : 'text-gray-700 hover:text-primary'} px-3 py-2 rounded-md text-sm font-medium transition-colors`}
               >
                 Home
+              </Link>
+              <Link
+                to="/banking"
+                className={`${darkMode ? 'text-light hover:text-primary' : 'text-gray-700 hover:text-primary'} px-3 py-2 rounded-md text-sm font-medium transition-colors`}
+              >
+                Banking
               </Link>
               <Link
                 to="/products"
