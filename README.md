@@ -1,9 +1,8 @@
+# 🚀 OctoTrust Bank: The Ultimate GitHub Copilot Demo v2.3.1
 
-# 🚀 OctoCAT Supply: The Ultimate GitHub Copilot Demo v2.3.1
+![OctoTrust Bank](./frontend/public/hero.png)
 
-![OctoCAT Supply](./frontend/public/hero.png)
-
-Welcome to the OctoCAT Supply Website - your go-to demo for showcasing the incredible capabilities of GitHub Copilot, GHAS, and the power of AI-assisted development!
+Welcome to the OctoTrust Bank Demo - your go-to demo for showcasing the incredible capabilities of GitHub Copilot, GHAS, and the power of AI-assisted development!
 
 ## ✨ What Makes This Demo Special
 

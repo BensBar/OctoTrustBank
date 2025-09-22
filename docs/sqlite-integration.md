@@ -1,6 +1,6 @@
 # SQLite Database Integration
 
-This document explains how to use the SQLite database integration in the OctoCAT Supply Chain Management API.
+This document explains how to use the SQLite database integration in the OctoTrust Bank Management API.
 
 ## Overview
 

@@ -48,8 +48,8 @@ export default function Welcome() {
           {/* Hero Image */}
           <div className="w-full max-w-7xl mx-auto">
             <img
-              src="/hero.png"
-              alt="Smart Cat Products powered by AI"
+              src="/hero.jpg"
+              alt="Smart Banking Services powered by AI"
               className="w-full h-auto rounded-lg"
             />
           </div>
@@ -69,22 +69,22 @@ export default function Welcome() {
               <h1
                 className={`text-5xl font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-gray-800'} transition-colors duration-300`}
               >
-                Smart Cat Tech.
+                Smart Banking.
                 <br />
-                Purrsonalized.
+                Personalized.
               </h1>
               <p
                 className={`${darkMode ? 'text-gray-200' : 'text-gray-700'} mb-8 text-lg transition-colors duration-300`}
               >
-                OctoCAT Supply brings cutting-edge AI technology to enhance your cat's life. Our
-                premium smart products learn from your feline friend's behavior to provide
-                personalized experiences, health insights, and next-level entertainment.
+                OctoTrust Bank brings cutting-edge AI technology to enhance your financial life. Our
+                premium banking services learn from your financial behavior to provide
+                personalized experiences, financial insights, and next-level banking convenience.
               </p>
               <button
                 onClick={() => navigate('/products')}
                 className="bg-primary hover:bg-accent text-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer"
               >
-                Explore Products
+                Explore Services
               </button>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function Welcome() {
             {/* Section Title - Takes 20% width on larger screens */}
             <div className="w-full md:w-1/5 mb-8 md:mb-0">
               <h2 className={`text-3xl font-bold text-left transition-colors duration-300`}>
-                Trusted By Cat Lovers Everywhere
+                Trusted By Financial Partners Everywhere
               </h2>
             </div>
 
@@ -121,7 +121,7 @@ export default function Welcome() {
               </svg>
 
               <Slider {...sliderSettings} ref={sliderRef} className="opacity-50">
-                {/* Logo 1 - Cat Cafe */}
+                {/* Logo 1 - Central Bank */}
                 <div className="flex flex-col items-center justify-center text-center px-4">
                   <div className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(118,184,82,0.4)] group-hover:scale-110 mb-2">
                     <svg
@@ -129,29 +129,20 @@ export default function Welcome() {
                       className="w-24 h-24 text-gray-500 group-hover:text-primary transition-colors duration-300"
                       style={{ filter: 'url(#green-glow)' }}
                     >
-                      <path
-                        d="M30 60 C 30 40, 70 40, 70 60"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                      />
-                      <circle cx="35" cy="35" r="7" fill="currentColor" />
-                      <circle cx="65" cy="35" r="7" fill="currentColor" />
-                      <path d="M40 50 L60 50" stroke="currentColor" strokeWidth="2" />
-                      <path
-                        d="M45 70 C 45 75, 55 75, 55 70"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
+                      <rect x="20" y="30" width="60" height="40" fill="none" stroke="currentColor" strokeWidth="3" />
+                      <path d="M15 30 L85 30" stroke="currentColor" strokeWidth="3" />
+                      <path d="M25 40 L75 40" stroke="currentColor" strokeWidth="1" />
+                      <path d="M25 50 L75 50" stroke="currentColor" strokeWidth="1" />
+                      <path d="M25 60 L75 60" stroke="currentColor" strokeWidth="1" />
+                      <circle cx="50" cy="20" r="3" fill="currentColor" />
                     </svg>
                   </div>
                   <span className="text-gray-500 text-sm font-medium group-hover:text-primary transition-colors duration-300 w-full text-center">
-                    Whiskers Cafe
+                    Central Bank
                   </span>
                 </div>
 
-                {/* Logo 2 - Paw Tech */}
+                {/* Logo 2 - FinTech Solutions */}
                 <div className="flex flex-col items-center justify-center text-center px-4">
                   <div className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(118,184,82,0.4)] group-hover:scale-110 mb-2">
                     <svg
@@ -168,7 +159,24 @@ export default function Welcome() {
                         strokeWidth="3"
                       />
                       <path d="M40 40 L60 40" stroke="currentColor" strokeWidth="2" />
+                      <path d="M40 50 L60 50" stroke="currentColor" strokeWidth="2" />
                       <path d="M40 60 L60 60" stroke="currentColor" strokeWidth="2" />
+                      <circle cx="35" cy="35" r="2" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-500 text-sm font-medium group-hover:text-primary transition-colors duration-300 w-full text-center">
+                    FinTech Solutions
+                  </span>
+                </div>
+
+                {/* Logo 3 - Investment Partners */}
+                <div className="flex flex-col items-center justify-center text-center px-4">
+                  <div className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(118,184,82,0.4)] group-hover:scale-110 mb-2">
+                    <svg
+                      viewBox="0 0 100 100"
+                      className="w-24 h-24 text-gray-500 group-hover:text-primary transition-colors duration-300"
+                      style={{ filter: 'url(#green-glow)' }}
+                    >
                       <circle
                         cx="30"
                         cy="30"
@@ -190,11 +198,11 @@ export default function Welcome() {
                     </svg>
                   </div>
                   <span className="text-gray-500 text-sm font-medium group-hover:text-primary transition-colors duration-300 w-full text-center">
-                    PawTech Solutions
+                    Investment Partners
                   </span>
                 </div>
 
-                {/* Logo 3 - Feline Innovations */}
+                {/* Logo 3 - Digital Banking */}
                 <div className="flex flex-col items-center justify-center text-center px-4">
                   <div className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(118,184,82,0.4)] group-hover:scale-110 mb-2">
                     <svg
@@ -219,11 +227,11 @@ export default function Welcome() {
                     </svg>
                   </div>
                   <span className="text-gray-500 text-sm font-medium group-hover:text-primary transition-colors duration-300 w-full text-center">
-                    Feline Innovations
+                    Digital Banking
                   </span>
                 </div>
 
-                {/* Logo 4 - Cat Health AI */}
+                {/* Logo 4 - Capital Partners */}
                 <div className="flex flex-col items-center justify-center text-center px-4">
                   <div className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(118,184,82,0.4)] group-hover:scale-110 mb-2">
                     <svg
@@ -251,11 +259,11 @@ export default function Welcome() {
                     </svg>
                   </div>
                   <span className="text-gray-500 text-sm font-medium group-hover:text-primary transition-colors duration-300 w-full text-center">
-                    CatHealth AI
+                    Capital Partners
                   </span>
                 </div>
 
-                {/* Logo 5 - Purr Tech */}
+                {/* Logo 5 - Trust Innovations */}
                 <div className="flex flex-col items-center justify-center text-center px-4">
                   <div className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(118,184,82,0.4)] group-hover:scale-110 mb-2">
                     <svg
@@ -285,11 +293,11 @@ export default function Welcome() {
                     </svg>
                   </div>
                   <span className="text-gray-500 text-sm font-medium group-hover:text-primary transition-colors duration-300 w-full text-center">
-                    PurrTech Innovations
+                    Trust Innovations
                   </span>
                 </div>
 
-                {/* Logo 6 - Whisker Data */}
+                {/* Logo 6 - Secure Systems */}
                 <div className="flex flex-col items-center justify-center text-center px-4">
                   <div className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(118,184,82,0.4)] group-hover:scale-110 mb-2">
                     <svg
@@ -311,7 +319,7 @@ export default function Welcome() {
                     </svg>
                   </div>
                   <span className="text-gray-500 text-sm font-medium group-hover:text-primary transition-colors duration-300 w-full text-center">
-                    WhiskerWare Systems
+                    Secure Systems
                   </span>
                 </div>
               </Slider>
@@ -324,7 +332,7 @@ export default function Welcome() {
           <h2
             className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} text-center mb-12 transition-colors duration-300`}
           >
-            Smart Solutions for Modern Cats
+            Smart Solutions for Modern Banking
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             <div
@@ -354,7 +362,7 @@ export default function Welcome() {
               <p
                 className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}
               >
-                AI-powered devices that track your cat's health, activity, and behavior patterns to
+                AI-powered tools that track your financial health, spending patterns, and investment performance to
                 provide valuable insights.
               </p>
             </div>
@@ -386,13 +394,13 @@ export default function Welcome() {
               <h3
                 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}
               >
-                Interactive Entertainment
+                Digital Services
               </h3>
               <p
                 className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}
               >
-                Engaging toys and systems that adapt to your cat's play style and preferences for
-                maximum enjoyment.
+                Engaging digital banking platforms that adapt to your financial style and preferences for
+                maximum convenience.
               </p>
             </div>
             <div
@@ -417,13 +425,13 @@ export default function Welcome() {
               <h3
                 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2 transition-colors duration-300`}
               >
-                Comfort & Wellness
+                Security & Trust
               </h3>
               <p
                 className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}
               >
-                Smart beds, feeding solutions, and grooming tools designed to enhance your cat's
-                health and comfort.
+                Advanced security systems, fraud protection, and trust-building tools designed to enhance your financial
+                safety and peace of mind.
               </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 {
   "name": "demo-copilot-agent-mode",
   "version": "1.0.0",
-  "description": "OctoCAT Supply Chain Management System",
+  "description": "OctoTrust Bank Management System",
   "private": true,
   "workspaces": [
     "api",

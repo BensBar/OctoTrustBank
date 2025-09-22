@@ -14,39 +14,34 @@ const Footer: React.FC = () => {
           <div>
             <h2 className="font-bold text-xl mb-4 text-primary">About</h2>
             <p className="text-sm">
-              OctoCAT Supply is the leading provider of AI-powered smart products for your feline
-              companions. Our innovative technology enhances your cat's wellbeing through
-              intelligent monitoring, interactive entertainment, and personalized comfort solutions.
+              OctoTrust Bank is the leading provider of AI-powered financial services for your
+              everyday banking needs. Our innovative technology enhances your financial wellbeing through
+              intelligent monitoring, personalized advice, and secure digital banking solutions.
             </p>
           </div>
 
-          {/* Account Section */}
+                    {/* Account Section */}
           <div>
-            <h2 className="font-bold text-xl mb-4 text-primary">Account</h2>
+            <h2 className="font-bold text-xl mb-4 text-primary">Banking</h2>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="hover:text-primary">
-                  My Cart
+                  Online Banking
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary">
-                  Checkout
+                  Mobile App
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary">
-                  Shopping Details
+                  Account Summary
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary">
-                  Order
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary">
-                  Help Center
+                  Transfer Funds
                 </a>
               </li>
             </ul>
@@ -120,7 +115,7 @@ const Footer: React.FC = () => {
         <div
           className={`mt-8 pt-8 ${darkMode ? 'border-gray-700' : 'border-gray-300'} border-t text-center text-sm transition-colors duration-300`}
         >
-          <p>Copyright © 2025 OctoCAT Supply. All Rights Reserved</p>
+          <p>Copyright © 2025 OctoTrust Bank. All Rights Reserved</p>
         </div>
       </div>
     </footer>
