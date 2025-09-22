@@ -7,7 +7,7 @@ tools: ['changes', 'codebase', 'editFiles', 'fetch', 'findTestFiles', 'githubRep
 # Demo: Cart Page and Icon Implementation
 
 ## Context
-This is a demo for GitHub Copilot Agent Mode and Vision capabilities. You are working with the OctoCAT Supply Chain Management System - a modern TypeScript web application with separate API and Frontend (React) projects.
+This is a demo for GitHub Copilot Agent Mode and Vision capabilities. You are working with the OctoTrust Bank Management System - a modern TypeScript web application with separate API and Frontend (React) projects.
 
 ## Current State
 - The application has a Products page where users can view items

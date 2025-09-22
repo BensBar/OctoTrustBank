@@ -1,4 +1,4 @@
--- Initial database schema for OctoCAT Supply Chain Management
+-- Initial database schema for OctoTrust Bank Management
 -- Migration 001: Create core tables
 
 -- Create suppliers table

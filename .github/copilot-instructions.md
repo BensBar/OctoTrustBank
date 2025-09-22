@@ -1,4 +1,4 @@
-# OctoCAT Supply Chain Management Application – General Copilot Instructions
+# OctoTrust Bank Management Application – General Copilot Instructions
 
 These are repository-wide guidelines. Path‑scoped files in `.github/instructions/*.instructions.md` provide focused guidance for specific areas (frontend, API, database).
 

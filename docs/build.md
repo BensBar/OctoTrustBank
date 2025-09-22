@@ -1,6 +1,6 @@
-# Building and Testing the OctoCAT Supply Chain Application
+# Building and Testing the OctoTrust Bank Application
 
-This guide provides instructions for building, running, and testing the OctoCAT Supply Chain Management application, which consists of an API component and a React Frontend.
+This guide provides instructions for building, running, and testing the OctoTrust Bank Management application, which consists of an API component and a React Frontend.
 
 ## Prerequisites
 

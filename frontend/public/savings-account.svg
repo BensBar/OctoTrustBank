@@ -1,0 +1,35 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="savingsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#76B852;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5A9A3A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+  
+  <!-- Piggy bank shape -->
+  <ellipse cx="100" cy="110" rx="45" ry="35" fill="url(#savingsGradient)"/>
+  
+  <!-- Piggy bank snout -->
+  <ellipse cx="85" cy="105" rx="12" ry="8" fill="url(#savingsGradient)"/>
+  <circle cx="83" cy="105" r="2" fill="#ffffff"/>
+  
+  <!-- Coin slot -->
+  <rect x="95" y="85" width="10" height="3" rx="1" fill="#2c3e50"/>
+  
+  <!-- Coin above -->
+  <circle cx="100" cy="75" r="8" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <text x="100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">$</text>
+  
+  <!-- Legs -->
+  <circle cx="80" cy="135" r="5" fill="url(#savingsGradient)"/>
+  <circle cx="95" cy="135" r="5" fill="url(#savingsGradient)"/>
+  <circle cx="105" cy="135" r="5" fill="url(#savingsGradient)"/>
+  <circle cx="120" cy="135" r="5" fill="url(#savingsGradient)"/>
+  
+  <!-- Eye -->
+  <circle cx="110" cy="100" r="3" fill="#ffffff"/>
+  <circle cx="112" cy="100" r="1.5" fill="#2c3e50"/>
+</svg>

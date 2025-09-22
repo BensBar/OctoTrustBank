@@ -1,6 +1,6 @@
-# Azure Container Apps Deployment Plan for OctoCAT Supply Chain Management
+# Azure Container Apps Deployment Plan for OctoTrust Bank Management
 
-This document outlines the deployment plan for the OctoCAT Supply Chain Management application to Azure Container Apps, focusing on cost-effectiveness and maintainability.
+This document outlines the deployment plan for the OctoTrust Bank Management application to Azure Container Apps, focusing on cost-effectiveness and maintainability.
 
 ## 1. Bicep Infrastructure Plan
 
@@ -170,4 +170,4 @@ DB_TIMEOUT=30000
 - Ensure that AcrPull role assignment is performed correctly for the Web Apps, and that both apps have `acrUseManagedIdentityCreds` is set to true
 - Ensure that the resources are using the location of the resource group
 
-This plan provides a solid foundation for deploying the OctoCAT Supply Chain Management application to Azure Web Apps using infrastructure as code with Bicep and automated CI/CD with GitHub Actions.
+This plan provides a solid foundation for deploying the OctoTrust Bank Management application to Azure Web Apps using infrastructure as code with Bicep and automated CI/CD with GitHub Actions.

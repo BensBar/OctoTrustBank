@@ -70,7 +70,7 @@ jobs:
       if: matrix.node-version == '20'  # Only run once
       run: |
         # Start the summary
-        echo "# 🚀 OctoCAT Supply Chain - Build & Test Results" >> $GITHUB_STEP_SUMMARY
+        echo "# 🚀 OctoTrust Bank - Build & Test Results" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "## 📊 Test Coverage Summary" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY

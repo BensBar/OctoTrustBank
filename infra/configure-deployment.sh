@@ -114,7 +114,7 @@ create_resource_group() {
         echo "✅ Resource group '$rg_name' already exists"
     else
         echo "🏗️ Creating resource group '$rg_name' in '$location'..."
-        az group create --name $rg_name --location $location --tags environment=$env application=OctoCAT-SupplyChain > /dev/null
+        az group create --name $rg_name --location $location --tags environment=$env application=OctoTrust-Bank > /dev/null
         echo "✅ Resource group '$rg_name' created successfully"
     fi
 }

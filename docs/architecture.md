@@ -1,4 +1,4 @@
-# OctoCAT Supply Chain Management System Architecture
+# OctoTrust Bank Management System Architecture
 
 This site is a demo application written in TypeScript. The entire app was created originally from an [ERD diagram](../api/ERD.png) and natural language prompts using Copilot. The frontend was created in the same way, using some of the design ideas in [the design folder](./design/).
 

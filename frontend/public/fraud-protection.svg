@@ -1,0 +1,66 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fraudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+  
+  <!-- Security shield -->
+  <path d="M100 40 L80 55 L80 100 C80 115 90 130 100 140 C110 130 120 115 120 100 L120 55 Z" 
+        fill="url(#fraudGradient)" 
+        stroke="#2c3e50" 
+        stroke-width="2"/>
+  
+  <!-- Shield checkmark -->
+  <path d="M90 90 L98 98 L115 75" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="4" 
+        stroke-linecap="round"/>
+  
+  <!-- Monitoring eye -->
+  <circle cx="100" cy="85" r="15" fill="#ffffff" opacity="0.9"/>
+  <circle cx="100" cy="85" r="8" fill="#2c3e50"/>
+  <circle cx="102" cy="83" r="3" fill="#ffffff"/>
+  
+  <!-- Alert indicators -->
+  <circle cx="50" cy="60" r="12" fill="#f39c12" filter="url(#glow)"/>
+  <text x="50" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">!</text>
+  
+  <circle cx="150" cy="60" r="12" fill="#f39c12" filter="url(#glow)"/>
+  <text x="150" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">!</text>
+  
+  <!-- Security camera -->
+  <rect x="40" y="140" width="20" height="15" rx="3" fill="#34495e"/>
+  <circle cx="50" cy="147" r="5" fill="#2c3e50"/>
+  <circle cx="50" cy="147" r="2" fill="#e74c3c"/>
+  <rect x="35" y="155" width="30" height="5" rx="2" fill="#34495e"/>
+  
+  <!-- Lock icon -->
+  <rect x="140" y="140" width="20" height="15" rx="2" fill="#34495e"/>
+  <circle cx="150" cy="135" r="5" fill="none" stroke="#34495e" stroke-width="2"/>
+  <rect x="145" y="145" width="10" height="2" fill="#f39c12"/>
+  
+  <!-- Network connections -->
+  <line x1="100" y1="40" x2="50" y2="60" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="100" y1="40" x2="150" y2="60" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Data packets -->
+  <rect x="75" y="45" width="8" height="6" rx="1" fill="#3498db" opacity="0.7"/>
+  <rect x="117" y="45" width="8" height="6" rx="1" fill="#3498db" opacity="0.7"/>
+  
+  <!-- Real-time indicator -->
+  <circle cx="170" cy="30" r="10" fill="#27ae60"/>
+  <text x="170" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffffff">LIVE</text>
+</svg>

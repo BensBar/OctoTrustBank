@@ -113,7 +113,7 @@ For each violation, provide:
 
 ## 📚 Focus Areas for This Codebase
 
-Based on the OctoCAT Supply Chain architecture:
+Based on the OctoTrust Bank architecture:
 
 ### **High-Priority Targets:**
 - **REST API Routes**: 8 route files with identical CRUD patterns

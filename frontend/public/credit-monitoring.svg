@@ -1,0 +1,38 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="creditGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+  
+  <!-- Credit score gauge background -->
+  <path d="M 100 50 A 50 50 0 1 1 99.99 50" fill="none" stroke="#e9ecef" stroke-width="8"/>
+  
+  <!-- Credit score gauge fill (good score) -->
+  <path d="M 100 50 A 50 50 0 0 1 150 100" fill="none" stroke="#27ae60" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 150 100 A 50 50 0 0 1 100 150" fill="none" stroke="#f39c12" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Center circle -->
+  <circle cx="100" cy="100" r="25" fill="#ffffff" stroke="#e9ecef" stroke-width="2"/>
+  
+  <!-- Score number -->
+  <text x="100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">750</text>
+  <text x="100" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#7f8c8d">EXCELLENT</text>
+  
+  <!-- Shield icon -->
+  <path d="M100 160 L85 175 L85 185 L100 195 L115 185 L115 175 Z" fill="url(#creditGradient)" stroke="#2c3e50" stroke-width="2"/>
+  <path d="M95 180 L100 185 L110 175" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Warning/monitoring icons -->
+  <circle cx="65" cy="75" r="8" fill="#f39c12"/>
+  <text x="65" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">!</text>
+  
+  <circle cx="135" cy="75" r="8" fill="#3498db"/>
+  <circle cx="133" cy="73" r="1" fill="#ffffff"/>
+  <circle cx="137" cy="73" r="1" fill="#ffffff"/>
+  <path d="M130 77 Q135 80 140 77" fill="none" stroke="#ffffff" stroke-width="1"/>
+</svg>
