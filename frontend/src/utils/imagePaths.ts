@@ -26,5 +26,5 @@ export const getHeroImagePath = (): string => {
 };
 
 export const getBankLogoPath = (): string => {
-  return getImagePath('banklogo.png');
+  return getImagePath('copilot.png');
 };
