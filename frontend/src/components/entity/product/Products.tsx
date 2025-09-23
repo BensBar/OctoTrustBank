@@ -7,15 +7,23 @@ import { fetchMockProducts, type Product } from '../../../data/mockData';
 import { getImagePath } from '../../../utils/imagePaths';
 
 const fetchProducts = async (): Promise<Product[]> => {
-  // Check if we should use mock data (for GitHub Pages)
-  const runtimeConfig = (window as { RUNTIME_CONFIG?: { USE_MOCK_DATA?: boolean } }).RUNTIME_CONFIG;
-  if (runtimeConfig?.USE_MOCK_DATA) {
+  // Check if we're on GitHub Pages (static hosting) and should use mock data
+  const isGitHubPages = window.location.hostname === 'bensbar.github.io' || 
+                       window.location.hostname.includes('.github.io');
+  
+  if (isGitHubPages) {
+    console.log('Using mock data for GitHub Pages deployment');
     return fetchMockProducts();
   }
   
-  // Use real API
-  const { data } = await axios.get(`${api.baseURL}${api.endpoints.products}`);
-  return data;
+  // Use real API for local development
+  try {
+    const { data } = await axios.get(`${api.baseURL}${api.endpoints.products}`);
+    return data;
+  } catch (error) {
+    console.error('API failed, falling back to mock data:', error);
+    return fetchMockProducts();
+  }
 };
 
 export default function Products() {
