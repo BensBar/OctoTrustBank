@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Welcome from './components/Welcome';
 import About from './components/About';
 import Footer from './components/Footer';
+import StockTicker from './components/StockTicker';
 import Products from './components/entity/product/Products';
 import Login from './components/Login';
 import BankingDashboard from './components/banking/BankingDashboard';
@@ -32,6 +33,7 @@ function ThemedApp() {
           </Routes>
         </main>
         <Footer />
+        <StockTicker />
       </div>
     </Router>
   );

@@ -43,49 +43,44 @@ export default function Welcome() {
       className={`relative ${darkMode ? 'bg-dark text-light' : 'bg-white text-gray-800'} transition-colors duration-300`}
     >
       {/* Content */}
-      <div className="relative px-4 sm:px-6 lg:px-8 pt-8">
-        <div className="relative py-4">
-          {/* Hero Image */}
-          <div className="w-full max-w-7xl mx-auto">
+      <div className="relative px-4 sm:px-6 lg:px-8 pt-16">
+        {/* Hero Section */}
+        <div className="relative max-w-7xl mx-auto">
+          {/* Hero Image with Overlay Content */}
+          <div className="relative">
             <img
               src="/hero.jpg"
               alt="Smart Banking Services powered by AI"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-[600px] object-cover rounded-lg shadow-2xl"
             />
-          </div>
-
-          {/* Text Content */}
-          <div className="absolute inset-0 flex items-start pt-16 justify-end max-w-7xl mx-auto px-10 sm:px-12 lg:px-14 mr-[-1rem]">
-            <div
-              className={`max-w-2xl ${darkMode ? 'bg-dark/60' : 'bg-white/60'} backdrop-blur-sm p-8 rounded-xl shadow-[0_0_25px_rgba(118,184,82,0.5)] transition-colors duration-300`}
-            >
-              <div
-                className={`${darkMode ? 'bg-primary/20' : 'bg-primary/30'} inline-block px-4 py-2 rounded-full mb-4 border border-primary/40`}
-              >
-                <span className="text-primary-700 dark:text-primary-300 font-semibold">
-                  Powered by Advanced AI
-                </span>
+            
+            {/* Overlay Content */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent rounded-lg">
+              <div className="flex items-center justify-start h-full px-8 sm:px-12 lg:px-16">
+                <div className="max-w-xl text-white">
+                  <div className="bg-primary/20 inline-block px-4 py-2 rounded-full mb-6 border border-primary/40">
+                    <span className="text-primary-300 font-semibold">
+                      Powered by Advanced AI
+                    </span>
+                  </div>
+                  <h1 className="text-5xl font-bold mb-6 leading-tight">
+                    Smart Banking.
+                    <br />
+                    <span className="text-primary">Personalized.</span>
+                  </h1>
+                  <p className="text-gray-200 mb-8 text-lg leading-relaxed">
+                    OctoTrust Bank brings cutting-edge AI technology to enhance your financial life. Our
+                    premium banking services learn from your financial behavior to provide
+                    personalized experiences, financial insights, and next-level banking convenience.
+                  </p>
+                  <button
+                    onClick={() => navigate('/products')}
+                    className="bg-primary hover:bg-accent text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    Explore Services
+                  </button>
+                </div>
               </div>
-              <h1
-                className={`text-5xl font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-gray-800'} transition-colors duration-300`}
-              >
-                Smart Banking.
-                <br />
-                Personalized.
-              </h1>
-              <p
-                className={`${darkMode ? 'text-gray-200' : 'text-gray-700'} mb-8 text-lg transition-colors duration-300`}
-              >
-                OctoTrust Bank brings cutting-edge AI technology to enhance your financial life. Our
-                premium banking services learn from your financial behavior to provide
-                personalized experiences, financial insights, and next-level banking convenience.
-              </p>
-              <button
-                onClick={() => navigate('/products')}
-                className="bg-primary hover:bg-accent text-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer"
-              >
-                Explore Services
-              </button>
             </div>
           </div>
         </div>
