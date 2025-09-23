@@ -23,20 +23,28 @@ jobs:
     - name: Install Dependencies
       run: npm ci
     
-    # Demo: Simulate Fortify scan
-    - name: Run Fortify SAST Scan
+    # Demo: Simulate Fortify scan with realistic output
+    - name: Run Fortify SAST Scan (Simulated)
       run: |
         echo "🔍 Running Fortify Static Application Security Testing..."
         echo "📊 Scanning JavaScript/TypeScript code for vulnerabilities..."
-        
-        # Simulate scan results for demo
+        echo ""
         echo "⚠️ Security Analysis Results:"
         echo "  - Found 0 Critical vulnerabilities"
-        echo "  - Found 1 High severity issue"
+        echo "  - Found 1 High severity issue: Potential SQL injection in userQueries.js"
         echo "  - Found 3 Medium severity issues"
         echo "  - Found 5 Low/Info findings"
+        echo ""
         
-        # For demo: uncomment next line to show failed security gate
-        # echo "❌ Critical vulnerabilities found - blocking merge" && exit 1
+        # For demo: This will PASS (comment out the next line to make it fail)
+        # exit 1
         
         echo "✅ Security scan completed - no critical issues blocking merge"
+        echo "📋 Results would be uploaded to Fortify Software Security Center"
+    
+    # Simulate uploading SARIF results
+    - name: Generate Demo SARIF Results
+      run: |
+        mkdir -p sarif-results
+        echo "Demo: SARIF file would be generated here"
+        echo "Results visible in GitHub Security tab"
