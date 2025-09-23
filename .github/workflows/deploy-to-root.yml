@@ -1,0 +1,47 @@
+name: Build and Deploy to Root for GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Frontend
+        run: npm run build --workspace=frontend
+
+      - name: Copy build to root
+        run: |
+          # Remove old files (except important ones)
+          find . -maxdepth 1 -name "*.html" -not -name "index.html" -delete
+          find . -maxdepth 1 -name "*.js" -delete
+          find . -maxdepth 1 -name "*.css" -delete
+          rm -rf assets/ || true
+          
+          # Copy built files to root
+          cp -r frontend/dist/* .
+          
+          # Create a proper index.html that doesn't redirect
+          # The built index.html from Vite should be the main one
+
+      - name: Commit and push to main
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git diff --staged --quiet || git commit -m "🚀 Deploy built frontend to root for GitHub Pages"
+          git push
