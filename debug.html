@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/OctoTrustBank/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OctoTrust Bank - Debug</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: #f5f5f5;
+      }
+      .debug-info {
+        background: white;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+      }
+      #root {
+        min-height: 50px;
+        border: 2px dashed #ccc;
+        padding: 20px;
+        margin: 20px 0;
+        background: #fafafa;
+      }
+      #root:empty::before {
+        content: "React app should mount here...";
+        color: #666;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="debug-info">
+      <h2>🏦 OctoTrust Bank - Debug Mode</h2>
+      <p><strong>Page loaded at:</strong> <span id="load-time"></span></p>
+      <p><strong>URL:</strong> <span id="current-url"></span></p>
+      <p><strong>Runtime Config:</strong> <span id="runtime-status">Loading...</span></p>
+      <p><strong>CSS Status:</strong> <span id="css-status">Loading...</span></p>
+      <p><strong>JS Status:</strong> <span id="js-status">Loading...</span></p>
+    </div>
+
+    <div class="debug-info">
+      <h3>React App Mount Point:</h3>
+      <div id="root"></div>
+    </div>
+
+    <!-- Load runtime configuration before app script -->
+    <script src="/OctoTrustBank/runtime-config.js"></script>
+    
+    <script>
+      // Set initial values
+      document.getElementById('load-time').textContent = new Date().toLocaleString();
+      document.getElementById('current-url').textContent = window.location.href;
+      
+      // Check runtime config
+      setTimeout(() => {
+        if (window.RUNTIME_CONFIG) {
+          document.getElementById('runtime-status').innerHTML = '✅ Loaded<br><small>' + JSON.stringify(window.RUNTIME_CONFIG, null, 2) + '</small>';
+        } else {
+          document.getElementById('runtime-status').textContent = '❌ Failed to load';
+        }
+      }, 500);
+      
+      // Check if CSS loaded
+      setTimeout(() => {
+        const cssLoaded = document.styleSheets.length > 0;
+        document.getElementById('css-status').textContent = cssLoaded ? '✅ CSS files loaded' : '❌ No CSS detected';
+      }, 1000);
+      
+      // Override console to capture errors
+      const originalError = console.error;
+      const errors = [];
+      console.error = function(...args) {
+        errors.push(args.join(' '));
+        originalError.apply(console, args);
+        if (document.getElementById('js-status')) {
+          document.getElementById('js-status').innerHTML = '❌ JS Errors:<br><small>' + errors.join('<br>') + '</small>';
+        }
+      };
+      
+      // Check React mount after a delay
+      setTimeout(() => {
+        const root = document.getElementById('root');
+        if (root && root.children.length > 0) {
+          document.getElementById('js-status').textContent = '✅ React app mounted successfully';
+        } else if (errors.length === 0) {
+          document.getElementById('js-status').textContent = '⏳ React app not mounted yet (no errors detected)';
+        }
+      }, 3000);
+    </script>
+    
+    <link rel="stylesheet" crossorigin href="/OctoTrustBank/assets/index-DYCUut9X.css">
+    <script type="module" crossorigin src="/OctoTrustBank/assets/index-H3lmY3kn.js"></script>
+  </body>
+</html>
