@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+import { getHeroImagePath } from '../utils/imagePaths';
 
 export default function Welcome() {
   const sliderRef = useRef<Slider | null>(null);
@@ -49,7 +50,7 @@ export default function Welcome() {
           {/* Hero Image with Overlay Content */}
           <div className="relative">
             <img
-              src="/hero.jpg"
+              src={getHeroImagePath()}
               alt="Smart Banking Services powered by AI"
               className="w-full h-[600px] object-cover rounded-lg shadow-2xl"
             />

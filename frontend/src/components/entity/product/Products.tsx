@@ -3,20 +3,17 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import { api } from '../../../api/config';
 import { useTheme } from '../../../context/ThemeContext';
-
-interface Product {
-  productId: number;
-  name: string;
-  description: string;
-  price: number;
-  imgName: string;
-  sku: string;
-  unit: string;
-  supplierId: number;
-  discount?: number;
-}
+import { fetchMockProducts, type Product } from '../../../data/mockData';
+import { getImagePath } from '../../../utils/imagePaths';
 
 const fetchProducts = async (): Promise<Product[]> => {
+  // Check if we should use mock data (for GitHub Pages)
+  const runtimeConfig = (window as { RUNTIME_CONFIG?: { USE_MOCK_DATA?: boolean } }).RUNTIME_CONFIG;
+  if (runtimeConfig?.USE_MOCK_DATA) {
+    return fetchMockProducts();
+  }
+  
+  // Use real API
   const { data } = await axios.get(`${api.baseURL}${api.endpoints.products}`);
   return data;
 };
@@ -159,7 +156,7 @@ export default function Products() {
                   onClick={() => handleProductClick(product)}
                 >
                   <img
-                    src={`/${product.imgName}`}
+                    src={getImagePath(product.imgName)}
                     alt={product.name}
                     className="w-full h-full object-contain p-2"
                   />
@@ -278,7 +275,7 @@ export default function Products() {
               className={`${darkMode ? 'bg-gradient-to-t from-gray-700 to-gray-800' : 'bg-gradient-to-t from-gray-100 to-white'} rounded-lg mb-6 p-4`}
             >
               <img
-                src={`/${selectedProduct.imgName}`}
+                src={getImagePath(selectedProduct.imgName)}
                 alt={selectedProduct.name}
                 className="w-full h-auto object-contain max-h-[400px]"
               />

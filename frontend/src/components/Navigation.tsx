@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { useState } from 'react';
+import { getBankLogoPath } from '../utils/imagePaths';
 
 export default function Navigation() {
   const { isLoggedIn, isAdmin, logout } = useAuth();
@@ -16,7 +17,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <img src="/banklogo.png" alt="OctoTrust Bank logo" className="h-8 w-auto" />
+              <img src={getBankLogoPath()} alt="OctoTrust Bank logo" className="h-8 w-auto" />
               <div className="ml-2">
                 <span className={`text-xl font-bold ${darkMode ? 'text-light' : 'text-gray-800'}`}>
                   OctoTrust Bank

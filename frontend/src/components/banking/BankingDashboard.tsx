@@ -3,13 +3,17 @@ import { useTheme } from '../../context/ThemeContext';
 import axios from 'axios';
 import { api } from '../../api/config';
 import { Account, Transaction } from '../../types/banking';
+import { 
+  fetchMockAccounts, 
+  fetchMockTransactions, 
+  fetchMockBankingStats,
+  BankingStatsData 
+} from '../../data/mockData';
 
-interface BankingStatsData {
-  totalCustomers: number;
-  totalAccounts: number;
-  totalBalance: number;
-  recentTransactions: number;
-}
+const isGitHubPages = () => {
+  return window.location.hostname === 'bensbar.github.io' || 
+         window.location.hostname.includes('.github.io');
+};
 
 export default function BankingDashboard() {
   const { darkMode } = useTheme();
@@ -31,36 +35,63 @@ export default function BankingDashboard() {
     try {
       setLoading(true);
       
-      // Fetch customers, accounts, and recent transactions
-      const [customersResponse, accountsResponse, transactionsResponse] = await Promise.all([
-        axios.get(`${api.baseURL}${api.endpoints.customers}`),
-        axios.get(`${api.baseURL}${api.endpoints.accounts}`),
-        axios.get(`${api.baseURL}${api.endpoints.transactions}`),
-      ]);
+      if (isGitHubPages()) {
+        // Use mock data for GitHub Pages deployment
+        const [accountsData, transactionsData, statsData] = await Promise.all([
+          fetchMockAccounts(),
+          fetchMockTransactions(),
+          fetchMockBankingStats()
+        ]);
 
-      const customersData = customersResponse.data;
-      const accountsData = accountsResponse.data;
-      const transactionsData = transactionsResponse.data;
+        setAccounts(accountsData);
+        setTransactions(transactionsData.slice(0, 10)); // Show only recent 10 transactions
+        setStats(statsData);
+      } else {
+        // Fetch customers, accounts, and recent transactions from API
+        const [customersResponse, accountsResponse, transactionsResponse] = await Promise.all([
+          axios.get(`${api.baseURL}${api.endpoints.customers}`),
+          axios.get(`${api.baseURL}${api.endpoints.accounts}`),
+          axios.get(`${api.baseURL}${api.endpoints.transactions}`),
+        ]);
 
-      setAccounts(accountsData);
-      setTransactions(transactionsData.slice(0, 10)); // Show only recent 10 transactions
+        const customersData = customersResponse.data;
+        const accountsData = accountsResponse.data;
+        const transactionsData = transactionsResponse.data;
 
-      // Calculate stats
-      const totalBalance = accountsData.reduce((sum: number, account: Account) => sum + account.balance, 0);
-      const todayStart = new Date();
-      todayStart.setHours(0, 0, 0, 0);
-      const recentTransactions = transactionsData.filter((t: Transaction) => 
-        new Date(t.transactionDate) >= todayStart
-      ).length;
+        setAccounts(accountsData);
+        setTransactions(transactionsData.slice(0, 10)); // Show only recent 10 transactions
 
-      setStats({
-        totalCustomers: customersData.length,
-        totalAccounts: accountsData.length,
-        totalBalance,
-        recentTransactions,
-      });
+        // Calculate stats
+        const totalBalance = accountsData.reduce((sum: number, account: Account) => sum + account.balance, 0);
+        const todayStart = new Date();
+        todayStart.setHours(0, 0, 0, 0);
+        const recentTransactions = transactionsData.filter((t: Transaction) => 
+          new Date(t.transactionDate) >= todayStart
+        ).length;
+
+        setStats({
+          totalCustomers: customersData.length,
+          totalAccounts: accountsData.length,
+          totalBalance,
+          recentTransactions,
+        });
+      }
     } catch (error) {
       console.error('Error fetching banking data:', error);
+      // Fallback to mock data if API fails
+      try {
+        const [accountsData, transactionsData, statsData] = await Promise.all([
+          fetchMockAccounts(),
+          fetchMockTransactions(),
+          fetchMockBankingStats()
+        ]);
+
+        setAccounts(accountsData);
+        setTransactions(transactionsData.slice(0, 10));
+        setStats(statsData);
+      } catch (mockError) {
+        console.error('Error loading mock data:', mockError);
+      }
     } finally {
       setLoading(false);
     }
