@@ -9,6 +9,8 @@ jobs:
   fortify-scan:
     runs-on: ubuntu-latest
     name: Fortify SAST Scan
+    permissions:
+      security-events: write
     
     steps:
     - name: Checkout Source
@@ -23,20 +25,152 @@ jobs:
     - name: Install Dependencies
       run: npm ci
     
-    # Demo: Simulate Fortify scan
-    - name: Run Fortify SAST Scan
+    - name: Run Fortify SAST Scan (Simulated)
       run: |
         echo "🔍 Running Fortify Static Application Security Testing..."
         echo "📊 Scanning JavaScript/TypeScript code for vulnerabilities..."
-        
-        # Simulate scan results for demo
+        echo ""
         echo "⚠️ Security Analysis Results:"
         echo "  - Found 0 Critical vulnerabilities"
-        echo "  - Found 1 High severity issue"
-        echo "  - Found 3 Medium severity issues"
+        echo "  - Found 2 High severity issues"
+        echo "  - Found 3 Medium severity issues" 
         echo "  - Found 5 Low/Info findings"
-        
-        # For demo: uncomment next line to show failed security gate
-        # echo "❌ Critical vulnerabilities found - blocking merge" && exit 1
-        
+        echo ""
         echo "✅ Security scan completed - no critical issues blocking merge"
+    
+    - name: Generate Fortify SARIF Results
+      run: |
+        cat > fortify-results.sarif << 'EOF'
+        {
+          "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+          "version": "2.1.0",
+          "runs": [
+            {
+              "tool": {
+                "driver": {
+                  "name": "Fortify Static Code Analyzer",
+                  "version": "22.2.0",
+                  "informationUri": "https://www.microfocus.com/en-us/products/static-code-analysis-sast"
+                }
+              },
+              "results": [
+                {
+                  "ruleId": "SQL_INJECTION",
+                  "message": {
+                    "text": "This database query contains a SQL injection flaw. The query dynamically constructs SQL using untrusted input, potentially allowing an attacker to modify the query structure."
+                  },
+                  "level": "error",
+                  "locations": [
+                    {
+                      "physicalLocation": {
+                        "artifactLocation": {
+                          "uri": "src/database/userQueries.js"
+                        },
+                        "region": {
+                          "startLine": 45,
+                          "startColumn": 20,
+                          "endLine": 45,
+                          "endColumn": 65
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "category": "Security",
+                    "severity": "High",
+                    "confidence": "High"
+                  }
+                },
+                {
+                  "ruleId": "WEAK_CRYPTOGRAPHY",
+                  "message": {
+                    "text": "The application uses MD5 for password hashing, which is cryptographically weak and vulnerable to rainbow table attacks. Consider using bcrypt, scrypt, or Argon2."
+                  },
+                  "level": "warning",
+                  "locations": [
+                    {
+                      "physicalLocation": {
+                        "artifactLocation": {
+                          "uri": "src/auth/passwordHash.js"
+                        },
+                        "region": {
+                          "startLine": 23,
+                          "startColumn": 15,
+                          "endLine": 23,
+                          "endColumn": 35
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "category": "Security",
+                    "severity": "Medium",
+                    "confidence": "High"
+                  }
+                },
+                {
+                  "ruleId": "HARDCODED_CREDENTIALS",
+                  "message": {
+                    "text": "Hardcoded database password found in source code. This poses a significant security risk if the code is exposed."
+                  },
+                  "level": "error",
+                  "locations": [
+                    {
+                      "physicalLocation": {
+                        "artifactLocation": {
+                          "uri": "src/config/database.js"
+                        },
+                        "region": {
+                          "startLine": 12,
+                          "startColumn": 25,
+                          "endLine": 12,
+                          "endColumn": 45
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "category": "Security",
+                    "severity": "High", 
+                    "confidence": "High"
+                  }
+                },
+                {
+                  "ruleId": "XSS_REFLECTED",
+                  "message": {
+                    "text": "User input is reflected in HTTP response without proper sanitization, potentially leading to cross-site scripting attacks."
+                  },
+                  "level": "warning",
+                  "locations": [
+                    {
+                      "physicalLocation": {
+                        "artifactLocation": {
+                          "uri": "src/api/userProfile.js"
+                        },
+                        "region": {
+                          "startLine": 67,
+                          "startColumn": 12,
+                          "endLine": 67,
+                          "endColumn": 45
+                        }
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "category": "Security",
+                    "severity": "Medium",
+                    "confidence": "Medium"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        EOF
+    
+    - name: Upload SARIF to GitHub Security Tab
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: fortify-results.sarif
+        category: fortify-sast
+      if: always()
