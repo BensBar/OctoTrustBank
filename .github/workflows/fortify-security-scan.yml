@@ -1,0 +1,42 @@
+name: Fortify Security Scan
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  fortify-scan:
+    runs-on: ubuntu-latest
+    name: Fortify SAST Scan
+    
+    steps:
+    - name: Checkout Source
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install Dependencies
+      run: npm ci
+    
+    # Demo: Simulate Fortify scan
+    - name: Run Fortify SAST Scan
+      run: |
+        echo "🔍 Running Fortify Static Application Security Testing..."
+        echo "📊 Scanning JavaScript/TypeScript code for vulnerabilities..."
+        
+        # Simulate scan results for demo
+        echo "⚠️ Security Analysis Results:"
+        echo "  - Found 0 Critical vulnerabilities"
+        echo "  - Found 1 High severity issue"
+        echo "  - Found 3 Medium severity issues"
+        echo "  - Found 5 Low/Info findings"
+        
+        # For demo: uncomment next line to show failed security gate
+        # echo "❌ Critical vulnerabilities found - blocking merge" && exit 1
+        
+        echo "✅ Security scan completed - no critical issues blocking merge"
