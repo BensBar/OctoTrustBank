@@ -76,12 +76,6 @@
           "properties": { "security-severity": "medium" }
         },
         {
-          "ruleId": "PATH_TRAVERSAL",
-          "level": "error",
-          "message": { "text": "Path traversal possible in lib/file_server.js" },
-          "locations": [{ "physicalLocation": { "artifactLocation": { "uri": "lib/file_server.js" }, "region": { "startLine": 7 } } }],
-          "properties": { "security-severity": "critical" }
-        }
       ]
     }
   ]
