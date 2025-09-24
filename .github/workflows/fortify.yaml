@@ -1,0 +1,26 @@
+name: Fortify SAST Scan
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+
+jobs:
+  fortify-sarif-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: Ensure SARIF present
+        run: test -f security/fortify.sarif || (echo "Missing security/fortify.sarif" && exit 1)
+
+      - name: Upload SARIF to Code Scanning (Fortify)
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: security/fortify.sarif
