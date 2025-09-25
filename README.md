@@ -1,4 +1,4 @@
-# 🚀 OctoTrust Bank: The Ultimate GitHub Copilot Demo v2.3.1
+# 🚀 OctoTrust Bank: The Ultimate GitHub Copilot Demo v2.3.1 - 
 
 ![OctoTrust Bank](./frontend/public/hero.png)
 
