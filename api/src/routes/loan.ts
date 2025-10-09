@@ -76,7 +76,11 @@ router.post('/approve', async (req, res, next) => {
       throw new ValidationError('approved is required and must be a boolean', 'approved');
     }
 
-    if (!approvalRequest.approvedBy || typeof approvalRequest.approvedBy !== 'string') {
+    if (
+      !approvalRequest.approvedBy ||
+      typeof approvalRequest.approvedBy !== 'string' ||
+      approvalRequest.approvedBy.trim() === ''
+    ) {
       throw new ValidationError('approvedBy is required and must be a string', 'approvedBy');
     }
 
