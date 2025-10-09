@@ -1,0 +1,34 @@
+# Code Owners for OctoTrust Bank
+# These owners will be requested for review when someone opens a pull request
+# that modifies files in the specified paths.
+#
+# Adjust team/user handles as needed for your organization.
+
+# Default owners for everything in the repo
+# This is a lower priority than later matches
+* @BensBar
+
+# API and backend code
+/api/ @BensBar
+
+# Database migrations and schema
+/api/sql/ @BensBar
+
+# Frontend code
+/frontend/ @BensBar
+
+# Documentation
+/docs/ @BensBar
+*.md @BensBar
+
+# Infrastructure and deployment
+/infra/ @BensBar
+docker-compose.yml @BensBar
+Dockerfile @BensBar
+
+# CI/CD workflows
+/.github/workflows/ @BensBar
+
+# Security and configuration
+/SECURITY.md @BensBar
+/.github/copilot-instructions.md @BensBar
