@@ -14,6 +14,7 @@ import supplierRoutes from './routes/supplier';
 import customerRoutes from './routes/customer';
 import accountRoutes from './routes/account';
 import transactionRoutes from './routes/transaction';
+import loanRoutes from './routes/loan';
 import { initializeDatabase } from './init-db';
 import { errorHandler } from './utils/errors';
 
@@ -86,6 +87,7 @@ app.use('/api/suppliers', supplierRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/accounts', accountRoutes);
 app.use('/api/transactions', transactionRoutes);
+app.use('/api/loan', loanRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
