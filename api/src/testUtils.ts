@@ -6,9 +6,9 @@
  */
 
 import express from 'express';
-import { getDatabase, closeDatabase } from '../src/db/sqlite';
-import { runMigrations } from '../src/db/migrate';
-import { errorHandler } from '../src/utils/errors';
+import { getDatabase, closeDatabase } from './db/sqlite';
+import { runMigrations } from './db/migrate';
+import { errorHandler } from './utils/errors';
 
 /**
  * Create and configure an Express app for testing
